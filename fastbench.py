@@ -555,6 +555,7 @@ def record_stats(func):
 
 
 def main(args):
+    print(f"Python {sys.version}")
     benchmarks = args.benchmarks
     if not benchmarks:
         benchmarks = [name for name, value in ALL_BENCHMARKS.items() if len(value) > 0
