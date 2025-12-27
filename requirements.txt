@@ -11,7 +11,6 @@ babel==2.17.0
 certifi==2021.5.30
     # via
     #   fastbench (pyproject.toml)
-    #   dulwich
     #   requests
 chameleon==3.9.1
     # via fastbench (pyproject.toml)
@@ -25,7 +24,7 @@ docutils==0.18.1
     # via
     #   fastbench (pyproject.toml)
     #   sphinx
-dulwich==0.20.23
+dulwich==0.24.10
     # via fastbench (pyproject.toml)
 genshi==0.7.7
     # via fastbench (pyproject.toml)
@@ -105,11 +104,12 @@ sympy==1.13.1
     # via fastbench (pyproject.toml)
 tomli==2.0.1
     # via fastbench (pyproject.toml)
-tornado==6.2
+tornado==6.5
     # via fastbench (pyproject.toml)
-urllib3==1.26.5
+typing-extensions==4.15.0
+    # via dulwich
+urllib3==2.6.2
     # via
-    #   fastbench (pyproject.toml)
     #   dulwich
     #   requests
 webencodings==0.5.1
