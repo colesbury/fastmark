@@ -7,6 +7,8 @@ import time
 import types
 
 EXCLUDED = {
+    "asyncio_tcp",
+    "asyncio_tcp_ssl",
     "bench_mp_pool",        # uses subprocess
     "bench_thread_pool",    # for now
 }
@@ -363,6 +365,13 @@ def async_tree(benchmark_name, use_task_groups=False):
         return async_tree.run
     return get_func
 
+def asyncio_tcp(use_ssl):
+    import functools
+    def get_func():
+        import bm_asyncio_tcp.run_benchmark as bm_asyncio_tcp
+        return functools.partial(bm_asyncio_tcp.main, use_ssl)
+    return get_func
+
 ALL_BENCHMARKS = {
     "2to3": ("bm_2to3", "run_2to3", "custom", 110),
     "async_generators": ("bm_async_generators", "bench_async_generators", "async", 54),
@@ -375,6 +384,8 @@ ALL_BENCHMARKS = {
     "async_tree_none": ("bm_async_tree", async_tree("none"), "async", 82),
     "async_tree_none_tg": ("bm_async_tree", async_tree("none", True), "async", 81),
     "asyncio_websockets": ("bm_asyncio_websockets", "main", "async", 37),
+    "asyncio_tcp": ("bm_asyncio_tcp", asyncio_tcp(use_ssl=False), "async", 100),
+    "asyncio_tcp_ssl": ("bm_asyncio_tcp", asyncio_tcp(use_ssl=True), "async", 100),
     "bench_mp_pool": ("bm_concurrent_imap", "bench_mp_pool", "func", 2, (2, 1000, 10)),
     "bench_thread_pool": ("bm_concurrent_imap", "bench_thread_pool", "func", 64, (2, 1000, 10)),
     "bpe_tokeniser": ("bm_bpe_tokeniser", "run_bpe_tokeniser", "custom", 57),
