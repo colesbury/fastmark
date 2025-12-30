@@ -1,6 +1,6 @@
 [project]
 name = "fastmark"
-version = "0.1.0"
+version = "0.1.2"
 description = "Run a subset of the pyperformance benchmarks quickly"
 readme = "README.md"
 requires-python=">=3.11"
@@ -37,11 +37,19 @@ dependencies = [
 ]
 
 [project.scripts]
-fastmark = "fastmark:cli"
+fastmark = "fastmark.fastmark:cli"
 
 [build-system]
 requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
-py-modules = ["fastmark"]
+include-package-data = true
+packages = ["fastmark", "fastmark.pyperformance"]
+
+[tool.setuptools.package-dir]
+fastmark = "."
+"fastmark.pyperformance" = "pyperformance/pyperformance"
+
+[tool.setuptools.package-data]
+"fastmark.pyperformance" = ["data-files/**"]

@@ -16,7 +16,17 @@ EXCLUDED = {
 def ADD_PATH(path):
     sys.path.append(os.path.join(os.path.dirname(__file__), path))
 
-BENCHMARKS = os.path.join(os.path.dirname(__file__), 'pyperformance', 'pyperformance', 'data-files', 'benchmarks')
+PYPERFORMANCE = os.path.join(os.path.dirname(__file__), 'pyperformance')
+
+if not os.path.exists(PYPERFORMANCE):
+    print(f"Error: pyperformance directory not found at {PYPERFORMANCE}", file=sys.stderr)
+    sys.exit(1)
+
+# 'pyperformance' is in a subdirectory when checked out, but not when installed via pip
+if os.path.exists(os.path.join(PYPERFORMANCE, 'pyperformance')):
+    PYPERFORMANCE = os.path.join(PYPERFORMANCE, 'pyperformance')
+
+BENCHMARKS = os.path.join(PYPERFORMANCE, 'data-files', 'benchmarks')
 
 ADD_PATH(BENCHMARKS)
 ADD_PATH(os.path.join(BENCHMARKS, 'bm_2to3', 'vendor', 'src'))
