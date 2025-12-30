@@ -1,3 +1,4 @@
+import argparse
 import inspect
 import io
 import re
@@ -635,8 +636,6 @@ def main(args):
             json.dump(results, f, indent=2)
 
 def cli(argv=None):
-    import argparse
-
     parser = argparse.ArgumentParser()
     parser.add_argument("--scale", type=int, default=100,
                         help="work scale factor for the benchmark (default=100)")
