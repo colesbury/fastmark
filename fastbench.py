@@ -624,9 +624,7 @@ def main(args):
         with open(args.json, "w") as f:
             json.dump(results, f, indent=2)
 
-
-
-if __name__ == "__main__":
+def cli(argv=None):
     import argparse
 
     parser = argparse.ArgumentParser()
@@ -640,5 +638,9 @@ if __name__ == "__main__":
                         help="save results as the baselines")
     parser.add_argument("benchmarks", nargs="*",
                         help="benchmarks to run")
-    options = parser.parse_args()
+    options = parser.parse_args(argv)
     main(options)
+
+
+if __name__ == "__main__":
+    cli()
