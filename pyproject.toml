@@ -1,7 +1,7 @@
 [project]
 name = "fastmark"
 version = "0.1.0"
-description = "Add your description here"
+description = "Run a subset of the pyperformance benchmarks quickly"
 readme = "README.md"
 requires-python=">=3.11"
 dependencies = [
