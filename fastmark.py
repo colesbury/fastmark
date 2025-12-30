@@ -354,7 +354,10 @@ def pyflate_args():
     return filename
 
 def regex_compile_args():
-    import regexes
+    try:
+        import fastmark.regexes as regexes
+    except ImportError:
+        import regexes
     return regexes.REGEXES
 
 def regex_dna_args():
@@ -610,7 +613,10 @@ def main(args):
 
     if not args.benchmarks:
         # Compute score
-        import baselines
+        try:
+            import fastmark.baselines as baselines
+        except ImportError:
+            import baselines
         import math
         log_ratios = []
         for benchmark, time_ms in results.items():

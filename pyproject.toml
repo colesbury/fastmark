@@ -52,4 +52,5 @@ fastmark = "."
 "fastmark.pyperformance" = "pyperformance/pyperformance"
 
 [tool.setuptools.package-data]
+"fastmark" = ["baselines.py", "regexes.py"]
 "fastmark.pyperformance" = ["data-files/**"]
