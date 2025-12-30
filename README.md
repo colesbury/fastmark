@@ -4,7 +4,7 @@ This contains scripts to run a subset of the pyperformance benchmarks quickly.
 ### Usage
 
 ```
-PYTHON_GIL=0 PYTHONHASHSEED=0 taskset -c 4 ./python fastbench.py
+PYTHON_GIL=0 PYTHONHASHSEED=0 taskset -c 4 ./python fastmark.py
 ```
 
 ### Other recommendations

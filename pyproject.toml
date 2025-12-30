@@ -1,5 +1,5 @@
 [project]
-name = "fastbench"
+name = "fastmark"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -37,11 +37,11 @@ dependencies = [
 ]
 
 [project.scripts]
-fastbench = "fastbench:cli"
+fastmark = "fastmark:cli"
 
 [build-system]
 requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
-py-modules = ["fastbench"]
+py-modules = ["fastmark"]
