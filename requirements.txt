@@ -26,7 +26,7 @@ docutils==0.18.1
     #   sphinx
 dulwich==0.24.10
     # via fastmark (pyproject.toml)
-genshi==0.7.7
+genshi==0.7.12
     # via fastmark (pyproject.toml)
 html5lib==1.1
     # via fastmark (pyproject.toml)

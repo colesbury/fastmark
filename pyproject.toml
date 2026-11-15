@@ -12,7 +12,7 @@ dependencies = [
     "django==3.2.4",
     "docutils==0.18.1",
     "dulwich==0.24.10",
-    "genshi==0.7.7",
+    "genshi==0.7.12",
     "html5lib==1.1",
     "legacy-cgi==2.6",
     "mako==1.1.4",
