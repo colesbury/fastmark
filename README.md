@@ -23,6 +23,14 @@ Install the dependencies. If Python is executed from the source directory, then 
 ./python -m pip install -r requirements.txt
 ```
 
+Alternatively, with [uv](https://docs.astral.sh/uv/). Unlike pip, uv doesn't compile `.pyc` files by default, so pass `--compile-bytecode` (see Gotchas):
+
+```
+uv venv -p ./python .venv
+uv pip install --compile-bytecode -r requirements.txt
+.venv/bin/python fastmark.py
+```
+
 ### Gotchas
 
 * Python compiles `.pyc` files for packages only when they are being installed. If the `PYC_MAGIC_NUMBER` changes, then Python will recompile the bytecode while the benchmark is running, potentially distorting results. It will not update the `.pyc` files for packages in `site-packages`, only local `__pycache__` directories.
